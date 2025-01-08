@@ -1,0 +1,28 @@
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--dark-blue);
+  padding: 2rem 1rem;
+  color: var(--white);
+}
+
+h1 {
+  font-weight: 800;
+}
+
+.moon-icon {
+  width: 1rem;
+  height: 1rem;
+  fill: var(--white);
+}
+
+div {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+span {
+  font-weight: 600;
+}

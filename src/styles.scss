@@ -1,1 +1,90 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght,YTLC@0,6..12,200..1000,440..540;1,6..12,200..1000,440..540&display=swap');
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+html {
+  font-size: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Nunito Sans', sans-serif;
+  background-color: var(--very-dark-blue-background);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100dvh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: inherit;
+  margin: 0;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+input, textarea, select {
+  background: none;
+  border: 1px solid transparent;
+  outline: none;
+  padding: 0;
+  font-family: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background-color: #ccc;
+}
+
+
+:root {
+  --dark-blue: hsl(209, 23%, 22%);
+
+  --very-dark-blue-background: hsl(207, 26%, 17%);
+
+  --very-dark-blue-text: hsl(200, 15%, 8%);
+
+  --dark-gray-input: hsl(0, 0%, 52%);
+
+  --very-light-gray-background: hsl(0, 0%, 98%);
+
+  --white: hsl(0, 0%, 100%);
+}
