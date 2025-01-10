@@ -1,1 +1,4 @@
 <app-header></app-header>
+<section class="cards" *ngFor="let country of countries | slice:0:8">
+  <app-country-card [country]="country"></app-country-card>
+</section>
