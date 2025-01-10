@@ -8,7 +8,7 @@ import { CountrySummaryInterface } from '../models/country-summary.interface';
 })
 export class CountryService {
 
-  private apiUrl = 'https://restcountries.com/v3.1/all?fields=name,population,region,capital';
+  private apiUrl = 'https://restcountries.com/v3.1/all?fields=name,population,region,capital,flags';
 
   constructor(private http: HttpClient) { }
 
