@@ -1,0 +1,23 @@
+.filter-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.search-input {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 1.5rem;
+  padding: .8rem 1rem .8rem 2rem;
+  margin: 1rem;
+  border-radius: .2rem;
+  background-color: var(--dark-blue);
+}
+
+svg, .filter-input, .filter-input::placeholder {
+  color: var(--white);
+}
+
+.filter-input:focus::placeholder {
+  opacity: 0.3;
+}
