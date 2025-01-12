@@ -7,8 +7,20 @@
       type="text"
       [(ngModel)]="searchTerm"
       placeholder="Search for a country..."
-      (ngModelChange)="onSearchChange()"
+      (ngModelChange)="onFilterChange()"
       class="filter-input"
     />
+  </div>
+
+  <div class="search-select" (click)="onSelectClick()">
+    <div class="select-box">
+      <span>{{ selectedRegion || 'Filter by Region' }}</span>
+      <div class="arrow"></div>
+    </div>
+
+    <ul *ngIf="isOptionsVisible" class="option-list">
+      <li (click)="onOptionSelect('')">None</li>
+      <li *ngFor="let region of regions" (click)="onOptionSelect(region)">{{ region }}</li>
+    </ul>
   </div>
 </div>

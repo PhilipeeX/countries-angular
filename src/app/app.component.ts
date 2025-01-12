@@ -11,6 +11,8 @@ export class AppComponent implements OnInit {
   title = 'countries-angular';
   countries: CountrySummaryInterface[] = [];
   filteredCountries: CountrySummaryInterface[] = [];
+  searchTerm = '';
+  selectedRegion = '';
 
   constructor(private countryService: CountryService) {}
 
@@ -21,13 +23,17 @@ export class AppComponent implements OnInit {
     });
   }
 
-  onFilterChanged(searchTerm: string): void {
-    if (!searchTerm) {
-      this.filteredCountries = this.countries;
-    } else {
-      this.filteredCountries = this.countries.filter(country =>
-        country.name.common.toLowerCase().includes(searchTerm.toLowerCase())
-      );
-    }
+  onFilterChanged(filters: { searchTerm: string, selectedRegion: string }): void {
+    this.searchTerm = filters.searchTerm;
+    this.selectedRegion = filters.selectedRegion;
+    this.filterCountries();
+  }
+
+  filterCountries(): void {
+    this.filteredCountries = this.countries.filter(country => {
+      const matchesSearchTerm = country.name.common.toLowerCase().includes(this.searchTerm.toLowerCase());
+      const matchesRegion = this.selectedRegion ? country.region === this.selectedRegion : true;
+      return matchesSearchTerm && matchesRegion;
+    });
   }
 }
