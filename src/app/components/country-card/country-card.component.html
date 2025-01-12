@@ -4,8 +4,8 @@
 <div class="content">
   <h2>{{ country.name.common }}</h2>
   <ul>
-    <li>Population: {{ country.population }}</li>
-    <li>Region: {{ country.region }}</li>
-    <li>Capital: {{ country.capital }}</li>
+    <li><span>Population:</span> {{ country.population | number }}</li>
+    <li><span>Region:</span> {{ country.region }}</li>
+    <li><span>Capital:</span> {{ country.capital }}</li>
   </ul>
 </div>
