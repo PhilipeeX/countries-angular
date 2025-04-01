@@ -1,0 +1,135 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1.5rem;
+  color: var(--white);
+}
+
+.return-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--dark-blue);
+  color: var(--white);
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1.5rem;
+  margin-bottom: 3rem;
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.1),
+    0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  max-width: 30%;
+
+  fa-icon {
+    font-size: 1rem;
+  }
+
+  span {
+    font-weight: 300;
+  }
+}
+
+img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 2.5rem;
+  border-radius: 5px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  color: var(--white);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem 0;
+
+  li {
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    font-size: 0.9rem;
+    color: var(--white);
+
+    span {
+      font-weight: 300;
+      margin-left: 0.3rem;
+      color: var(--white);
+    }
+  }
+}
+
+div:last-child {
+  p {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: var(--white);
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+
+    li {
+      background-color: var(--dark-blue);
+      padding: 0.4rem 1.5rem;
+      margin: 0;
+      font-size: 0.8rem;
+      font-weight: 300;
+      border-radius: 3px;
+      box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+      color: var(--white);
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  :host {
+    padding: 2.5rem 4rem;
+  }
+
+  .return-btn {
+    width: fit-content;
+  }
+
+  .country-details-container {
+    display: flex;
+    gap: 5rem;
+    align-items: center;
+    margin-top: 2rem;
+
+    img {
+      flex: 1;
+      max-width: 45%;
+      margin-bottom: 0;
+    }
+
+    .details-content {
+      flex: 1;
+
+      .details-lists {
+        display: flex;
+        gap: 3rem;
+        margin-bottom: 3rem;
+      }
+    }
+  }
+
+  .border-countries {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    p {
+      margin: 0;
+      white-space: nowrap;
+    }
+  }
+}
