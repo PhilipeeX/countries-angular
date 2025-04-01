@@ -9,7 +9,7 @@ import {map} from 'rxjs/operators';
   providedIn: 'root'
 })
 export class CountryService {
-  private apiUrl = '/api';
+  private apiUrl = 'https://restcountries.com/v3.1/api';
   private filters = '/all?fields=name,population,region,capital,flags';
 
   constructor(private http: HttpClient) { }
