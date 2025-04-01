@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {CountrySummaryInterface} from '../../../models/country-summary.interface';
+import {CountrySummaryInterface} from '../../models/country-summary.interface';
 
 @Component({
   selector: 'app-country-card',

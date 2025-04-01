@@ -5,12 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './components/header/header.component';
-import { CountryCardComponent } from './components/countries/country-card/country-card.component';
-import { FilterComponent } from './components/countries/filter/filter.component';
+import { CountryCardComponent } from './components/country-card/country-card.component';
+import { FilterComponent } from './components/filter/filter.component';
 import { FormsModule } from '@angular/forms';
-import { CountryDetailsComponent } from './components/country-details/country-details.component';
-import { CountriesComponent } from './components/countries/countries.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -18,15 +15,12 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     HeaderComponent,
     CountryCardComponent,
     FilterComponent,
-    CountryDetailsComponent,
-    CountriesComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule,
-    FontAwesomeModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
