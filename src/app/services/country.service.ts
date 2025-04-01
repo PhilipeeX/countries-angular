@@ -19,7 +19,7 @@ export class CountryService {
   }
 
   getCountryByName(name: string): Observable<CountryDetailsInterface> {
-    return this.http.get<CountryDetailsInterface[]>(`${this.apiUrl}/name/${name}`)
+    return this.http.get<CountryDetailsInterface[]>(`${this.apiUrl}/name/${name}?fullText=true`)
       .pipe(
         map((response: CountryDetailsInterface[]) => response[0])
       );

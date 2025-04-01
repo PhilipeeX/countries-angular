@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {CountryService} from '../../services/country.service';
 import {CountryDetailsInterface} from '../../models/country-details.interface';
 import {faArrowLeft} from '@fortawesome/free-solid-svg-icons';
-import * as countries from 'country-list';
+import {countryTrigramMap} from '../../shared/constants/country-trigram-map';
 
 @Component({
   selector: 'app-country-details',
@@ -11,16 +11,16 @@ import * as countries from 'country-list';
   styleUrls: ['./country-details.component.scss']
 })
 export class CountryDetailsComponent implements OnInit {
-  countryList = countries;
   countryName: string;
   countryDetails: CountryDetailsInterface;
   faArrowLeft = faArrowLeft;
   currencies = [];
-
   country: string;
+  countryTrigramMap = countryTrigramMap;
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private countryService: CountryService
   ) { }
 
@@ -64,17 +64,17 @@ export class CountryDetailsComponent implements OnInit {
     return Object.values(this.countryDetails.languages);
   }
 
-  getBorderCountries(): string[] {
-    if (!this.countryDetails || !this.countryDetails.borders) {
+  getBorderCountries(): any[] {
+    if (!this.countryDetails || !this.countryDetails.borders || this.countryDetails.borders.length === 0) {
       return [];
     }
 
-    return this.countryDetails.borders.map((border: string) => {
-      // TODO: Tentei implementar dessa forma mas nao dá certo, é necessário usar alguma forma de obter o nome do país
-      // através das 3 letras das abreviações e nao apenas 2, com 2 fica bugado, ex: observar o Brasil.
-      const term = border.slice(0, 2);
-      return this.countryList.getName(term);
-    });
+    return this.countryDetails.borders.map(code =>
+      this.countryTrigramMap[code]
+    );
   }
 
+  returnToCountries(): void{
+    this.router.navigate(['/countries']);
+  }
 }
