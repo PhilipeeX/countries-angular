@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {CountrySummaryInterface} from '../../models/country-summary.interface';
 import {CountryService} from '../../services/country.service';
@@ -13,13 +13,14 @@ export class CountriesComponent implements OnInit {
   filteredCountries: CountrySummaryInterface[] = [];
   searchTerm = '';
   selectedRegion = '';
+  displayedCount = 8;
 
   constructor(private router: Router, private countryService: CountryService) { }
 
   ngOnInit(): void {
     this.countryService.getCountries().subscribe((data: CountrySummaryInterface[]) => {
       this.countries = data;
-      this.filteredCountries = data;
+      this.filteredCountries = this.countries.slice(0, this.displayedCount);
     });
   }
 
@@ -39,5 +40,19 @@ export class CountriesComponent implements OnInit {
 
   redirectToCountry(name: string) {
     this.router.navigate([`/country/${name}`]);
+  }
+
+  @HostListener('window:scroll', ['$event'])
+  onScroll(): void {
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 100) {
+      this.loadMoreCountries();
+    }
+  }
+
+  loadMoreCountries(): void {
+    if (this.displayedCount < this.countries.length) {
+      this.displayedCount += 8;
+      this.filteredCountries = this.countries.slice(0, this.displayedCount);
+    }
   }
 }

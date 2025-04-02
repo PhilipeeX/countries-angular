@@ -1,5 +1,5 @@
 <app-filter (filterChanged)="onFilterChanged($event)"></app-filter>
-<section class="cards" *ngFor="let country of filteredCountries | slice:0:8">
+<section class="cards" *ngFor="let country of filteredCountries">
   <app-country-card [country]="country" (click)="redirectToCountry(country.name.common)">
   </app-country-card>
 </section>
