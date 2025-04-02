@@ -1,3 +1,4 @@
+<ng-container *ngIf="countryDetails">
 <button class="return-btn" (click)="returnToCountries()">
   <fa-icon [icon]="faArrowLeft"></fa-icon>
   <span>Back</span>
@@ -30,3 +31,4 @@
     <li *ngFor="let country of getBorderCountries(); let i = index">{{ country }}</li>
   </ul>
 </div>
+</ng-container>
