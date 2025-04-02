@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {CountryService} from '../../services/country.service';
 import {CountryDetailsInterface} from '../../models/country-details.interface';
@@ -21,7 +21,8 @@ export class CountryDetailsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private countryService: CountryService
+    private countryService: CountryService,
+    private cdr: ChangeDetectorRef
   ) { }
 
   ngOnInit(): void {
@@ -35,6 +36,7 @@ export class CountryDetailsComponent implements OnInit {
   loadCountryDetails(): void {
     this.countryService.getCountryByName(this.countryName).subscribe(data => {
       this.countryDetails = data;
+      this.cdr.detectChanges();
     });
   }
 
