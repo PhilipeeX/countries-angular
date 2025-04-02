@@ -1,0 +1,32 @@
+<button class="return-btn" (click)="returnToCountries()">
+  <fa-icon [icon]="faArrowLeft"></fa-icon>
+  <span>Back</span>
+</button>
+<img src="{{ countryDetails.flags.png }}" alt="{{ countryDetails.flags.alt }}">
+<div>
+  <h1>{{ countryDetails.name.common }}</h1>
+  <ul>
+    <li>Native name: <span>{{ getNativeName() }}</span></li>
+    <li>Population: <span>{{ countryDetails.population }}</span></li>
+    <li>Region: <span>{{ countryDetails.region }}</span></li>
+    <li>Sub Region: <span>{{ countryDetails.subregion }}</span></li>
+    <li>Capital: <span>{{ countryDetails.capital }}</span></li>
+  </ul>
+</div>
+<div>
+  <ul>
+    <li>Top level domain:<span>{{ countryDetails.tld }}</span></li>
+    <li>Currencies:<span>{{ getCurrencies() }}</span></li>
+    <li>Languages:
+      <span *ngFor="let language of getLanguages(); let i = index">{{ language }}
+        <span *ngIf="i < getLanguages().length - 1">,</span>
+      </span>
+    </li>
+  </ul>
+</div>
+<div>
+  <p>Border countries</p>
+  <ul>
+    <li *ngFor="let country of getBorderCountries(); let i = index">{{ country }}</li>
+  </ul>
+</div>
